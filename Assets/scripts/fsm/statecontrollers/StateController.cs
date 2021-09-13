@@ -20,7 +20,6 @@ namespace game.package.fsm
         [HideInInspector] public bool isMovingLeft;
         [HideInInspector] public bool isMovingRight;
         [HideInInspector] public bool isJumping;
-        [HideInInspector] public bool isGrounded;
         [HideInInspector] public Rigidbody rigidBody;
 
 
@@ -50,7 +49,7 @@ namespace game.package.fsm
         {
             localStats = new LocalCharacterStats(characterStats);
             rigidBody = GetComponent<Rigidbody>();
-            isGrounded = true;
+            isJumping = false;
         }
 
         public virtual void TransitionToState(State nextState)
