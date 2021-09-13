@@ -12,12 +12,9 @@ namespace game.package.fsm
 
         private bool DecideToRun(StateController controller)
         {
-            Debug.Log($"Player y velocity: {controller.rigidBody.velocity.y}");
-            if(controller.rigidBody.velocity.y <= 0)
+            if(!controller.isJumping && controller.rigidBody.velocity.y == 0)
             {
-                Debug.Log("Player jump decision");
-                controller.rigidBody.velocity = Vector3.zero;
-                controller.rigidBody.angularVelocity = Vector3.zero;
+                controller.animator.SetBool("isJumping", false);
                 return true;
             }
             return false;

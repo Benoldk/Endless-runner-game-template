@@ -55,8 +55,12 @@ namespace game.package.fsm
 
         private void OnCollisionEnter(Collision collision)
         {
-            isGrounded = collision.collider != null 
-                        && collision.collider.tag.CompareTo("Ground") == 0;
+            isJumping = !(collision.collider.tag.CompareTo("Ground") == 0);
+        }
+
+        private void OnCollisionExit(Collision collision)
+        {
+            isJumping = collision.collider.tag.CompareTo("Ground") == 0;
         }
     }
 }

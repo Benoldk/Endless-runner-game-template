@@ -13,13 +13,7 @@ namespace game.package.fsm
 
         private void Jump(StateController controller)
         {
-            if (controller.rigidBody.velocity.y == 0 && controller.isGrounded)
-            {
-                Debug.Log("Player jump action");
-                controller.isGrounded = false;
-                controller.animator.SetBool("isJumping", controller.rigidBody.velocity.y > 0);
-                controller.rigidBody.AddForce(Vector3.up * controller.jumpForce, ForceMode.Impulse);
-            }
+            controller.animator.SetBool("isJumping", controller.isJumping);
         }
     }
 }
