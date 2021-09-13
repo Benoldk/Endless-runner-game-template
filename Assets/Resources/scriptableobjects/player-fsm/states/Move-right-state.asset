@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 140b01dea9ac1d04893e2ac1d64edf93, type: 3}
+  m_Name: Move-right-state
+  m_EditorClassIdentifier: 
+  Actions:
+  - {fileID: 11400000, guid: 3b660c264210a0d47b2097951d46b197, type: 2}
+  Transitions:
+  - Decision: {fileID: 11400000, guid: 234a62fdfaf69914997f7f5c14cc5bdc, type: 2}
+    TrueState: {fileID: 11400000}
+    FalseState: {fileID: 11400000, guid: f6031fea12871dd4391e7102e4862edb, type: 2}
+  - Decision: {fileID: 11400000, guid: c00fc5d2d4aa5574297328ace3fe8810, type: 2}
+    TrueState: {fileID: 11400000, guid: 2c6d50e55b1ebbe43bc7bcce9dafcc04, type: 2}
+    FalseState: {fileID: 11400000, guid: f6031fea12871dd4391e7102e4862edb, type: 2}
+  - Decision: {fileID: 11400000, guid: c1baf965eab870446b0acf58a82085af, type: 2}
+    TrueState: {fileID: 11400000, guid: e8b50d45ef05c534a950bf1b70fa45bf, type: 2}
+    FalseState: {fileID: 11400000, guid: f6031fea12871dd4391e7102e4862edb, type: 2}
