@@ -12,9 +12,15 @@ namespace game.package.fsm
 
         private bool DecideToJump(StateController controller)
         {
-            return controller.rigidBody.velocity.y == 0
-                && controller.isGrounded
-                && Input.GetAxis("Vertical") > 0;
+            if(!controller.isJumping 
+                && controller.rigidBody.velocity.y == 0
+                && Input.GetAxis("Vertical") > 0)
+            {
+                controller.isJumping = true;
+                controller.rigidBody.AddForce(Vector3.up * controller.jumpForce, ForceMode.Impulse);
+                return true;
+            }
+            return false;
         }
     }
 }
