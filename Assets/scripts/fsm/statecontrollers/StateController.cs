@@ -13,6 +13,9 @@ namespace game.package.fsm
         public float leftLaneOffset;
         public float targetDistanceThreshold = 0.25f;
         public float jumpForce = 2f;
+        public float runAnimationMultiplier = 0.6f;
+        public float runAnimationAccel = 0.001f;
+        public float runAnimMaxMultiplier = 1;
 
         [SerializeField] protected CharacterStats characterStats;
 

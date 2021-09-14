@@ -366,6 +366,10 @@ PrefabInstance:
       propertyPath: jumpHeight
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8598815009983063977, guid: fc7318b42b22a5645ba10ac8cf4afa01, type: 3}
+      propertyPath: runAnimationAccel
+      value: 0.0076
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc7318b42b22a5645ba10ac8cf4afa01, type: 3}
 --- !u!1 &2068783865
