@@ -306,10 +306,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 919132149187821050, guid: fc7318b42b22a5645ba10ac8cf4afa01, type: 3}
-      propertyPath: m_UseGravity
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4966613208185676649, guid: fc7318b42b22a5645ba10ac8cf4afa01, type: 3}
       propertyPath: m_Name
       value: player_michelle
@@ -357,18 +353,6 @@ PrefabInstance:
     - target: {fileID: 5739596702526732755, guid: fc7318b42b22a5645ba10ac8cf4afa01, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598815009983063977, guid: fc7318b42b22a5645ba10ac8cf4afa01, type: 3}
-      propertyPath: jumpForce
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598815009983063977, guid: fc7318b42b22a5645ba10ac8cf4afa01, type: 3}
-      propertyPath: jumpHeight
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598815009983063977, guid: fc7318b42b22a5645ba10ac8cf4afa01, type: 3}
-      propertyPath: runAnimationAccel
-      value: 0.0076
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc7318b42b22a5645ba10ac8cf4afa01, type: 3}

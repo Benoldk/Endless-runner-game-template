@@ -1106,6 +1106,8 @@ MonoBehaviour:
   runAnimationMultiplier: 0.6
   runAnimationAccel: 0.0075
   runAnimMaxMultiplier: 1
+  isSliding: 0
+  slideDuration: 1
   characterStats: {fileID: 11400000, guid: 158922a82c41d9144b6036fa96835409, type: 2}
   nextPoint: {x: 0, y: 0, z: 0}
   isMovingLeft: 0

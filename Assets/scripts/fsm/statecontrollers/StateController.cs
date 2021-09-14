@@ -16,6 +16,8 @@ namespace game.package.fsm
         public float runAnimationMultiplier = 0.6f;
         public float runAnimationAccel = 0.001f;
         public float runAnimMaxMultiplier = 1;
+        public bool isSliding;
+        public float slideDuration = 0.5f;
 
         [SerializeField] protected CharacterStats characterStats;
 
@@ -53,6 +55,7 @@ namespace game.package.fsm
             localStats = new LocalCharacterStats(characterStats);
             rigidBody = GetComponent<Rigidbody>();
             isJumping = false;
+            isSliding = false;
         }
 
         public virtual void TransitionToState(State nextState)
