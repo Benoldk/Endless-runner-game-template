@@ -7,6 +7,7 @@ namespace game.package.fsm
     {
         public override void Act(StateController controller)
         {
+            SetRunAnimationSpeed(controller);
             Run(controller);
             UpdatePosition(controller);
         }
@@ -15,6 +16,13 @@ namespace game.package.fsm
         {
             controller.direction = controller.transform.forward.normalized;
             controller.animator.SetFloat("speed", controller.localStats.Speed);
+        }
+
+        private void SetRunAnimationSpeed(StateController controller)
+        {
+            if(controller.runAnimationMultiplier < controller.runAnimMaxMultiplier)
+                controller.runAnimationMultiplier += controller.runAnimationAccel * Time.deltaTime;
+            controller.animator.SetFloat("runAnimMultiplier", controller.runAnimationMultiplier);
         }
     }
 }
