@@ -2,7 +2,7 @@
 
 namespace game.package.fsm
 {
-    [CreateAssetMenu(menuName = "FSM/Decisions/SlideDecision", fileName = "Slide-decision")]
+    [CreateAssetMenu(menuName = "FSM/Decisions/SlideDecision", fileName = "Slide-decision", order = 1)]
     public class SlideDecision : Decision
     {
         public override bool Decide(StateController controller)

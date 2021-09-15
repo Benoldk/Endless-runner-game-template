@@ -2,7 +2,7 @@
 
 namespace game.package.fsm
 {
-    [CreateAssetMenu(menuName = "FSM/Decisions/SlideToRunDecision", fileName = "Slide-to-run-decision")]
+    [CreateAssetMenu(menuName = "FSM/Decisions/SlideToRunDecision", fileName = "Slide-to-run-decision", order = 2)]
     public class SlideToRunDecision : Decision
     {
         private float _elapsedTime;

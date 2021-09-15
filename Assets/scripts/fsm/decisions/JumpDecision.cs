@@ -2,7 +2,7 @@
 
 namespace game.package.fsm
 {
-    [CreateAssetMenu(menuName = "FSM/Decisions/JumpDecision", fileName = "Jump-decision")]
+    [CreateAssetMenu(menuName = "FSM/Decisions/JumpDecision", fileName = "Jump-decision", order = 3)]
     public class JumpDecision : Decision
     {
         public override bool Decide(StateController controller)

@@ -9,8 +9,11 @@ namespace game.package.fsm
         public State remainState;
         public LocalCharacterStats localStats;
         public Animator animator;
-        public float rightLaneOffset;
-        public float leftLaneOffset;
+        public float laneOffset = 2.5f;
+        public int minLaneIndex = 0;
+        public int maxLaneIndex = 2;
+        public int targetLane = 1;
+        public float targetLanePosition;
         public float targetDistanceThreshold = 0.25f;
         public float jumpForce = 2f;
         public float runAnimationMultiplier = 0.6f;
@@ -22,8 +25,7 @@ namespace game.package.fsm
         [SerializeField] protected CharacterStats characterStats;
 
         [HideInInspector] public Vector3 nextPoint;
-        [HideInInspector] public bool isMovingLeft;
-        [HideInInspector] public bool isMovingRight;
+        [HideInInspector] public bool isMovingHorizontally;
         [HideInInspector] public bool isJumping;
         [HideInInspector] public Rigidbody rigidBody;
 
@@ -54,6 +56,8 @@ namespace game.package.fsm
         {
             localStats = new LocalCharacterStats(characterStats);
             rigidBody = GetComponent<Rigidbody>();
+            transform.position = Vector3.zero;
+            isMovingHorizontally = false;
             isJumping = false;
             isSliding = false;
         }

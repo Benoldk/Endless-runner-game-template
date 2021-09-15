@@ -2,24 +2,19 @@
 
 namespace game.package.fsm
 {
-    [CreateAssetMenu(menuName = "FSM/Decisions/MoveLeftDecision", fileName = "Move-left-decision")]
+    [CreateAssetMenu(menuName = "FSM/Decisions/MoveLeftDecision", fileName = "Move-left-decision", order = 5)]
     public class MoveLeftDecision : MoveToLaneDecision
     {
         protected override bool DecideToMove(StateController controller)
         {
-            if (!controller.isMovingLeft
-                && !controller.isMovingRight
-                && controller.transform.position.x != controller.leftLaneOffset
+            if (controller.targetLane > controller.minLaneIndex
+                && !controller.isMovingHorizontally
                 && Input.GetAxisRaw("Horizontal") < 0)
             {
-                controller.targetPosition = new Vector3(controller.transform.position.x + controller.leftLaneOffset, 0, 0);
-                controller.isMovingLeft = true;
+                controller.targetLane--;
+                controller.targetPosition = new Vector3(controller.transform.position.x - controller.laneOffset, 0, 0);
+                controller.isMovingHorizontally = true;
                 return true;
-            }
-            else if (controller.isMovingLeft && !controller.isMovingRight)
-            {
-                controller.isMovingLeft = IsMovingToLaneTargetPosition(controller);
-                return controller.isMovingLeft;
             }
             return false;
         }
