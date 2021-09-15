@@ -2,24 +2,19 @@
 
 namespace game.package.fsm
 {
-    [CreateAssetMenu(menuName = "FSM/Decisions/MoveRightDecision", fileName = "Move-right-decision")]
+    [CreateAssetMenu(menuName = "FSM/Decisions/MoveRightDecision", fileName = "Move-right-decision", order = 6)]
     public class MoveRightDecision : MoveToLaneDecision
     {
         protected override bool DecideToMove(StateController controller)
         {
-            if (!controller.isMovingRight
-                && !controller.isMovingLeft
-                && controller.transform.position.x != controller.rightLaneOffset 
+            if (controller.targetLane < controller.maxLaneIndex
+                && !controller.isMovingHorizontally
                 && Input.GetAxisRaw("Horizontal") > 0)
             {
-                controller.targetPosition = new Vector3(controller.transform.position.x + controller.rightLaneOffset, 0, 0);
-                controller.isMovingRight = true;
+                controller.targetLane++;
+                controller.targetPosition = new Vector3(controller.transform.position.x + controller.laneOffset, 0, 0);
+                controller.isMovingHorizontally = true;
                 return true;
-            }
-            else if (controller.isMovingRight && !controller.isMovingLeft)
-            {
-                controller.isMovingRight = IsMovingToLaneTargetPosition(controller);
-                return controller.isMovingRight;
             }
             return false;
         }

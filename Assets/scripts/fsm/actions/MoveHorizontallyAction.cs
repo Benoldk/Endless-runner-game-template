@@ -2,16 +2,17 @@
 
 namespace game.package.fsm
 {
-    public class MoveToLaneDecision : Decision
+    public class MoveHorizontallyAction : Action
     {
-        public override bool Decide(StateController controller)
+        public override void Act(StateController controller)
         {
-            return DecideToMove(controller);
+            MoveHorizontally(controller);
+            UpdatePosition(controller);
         }
 
-        protected virtual bool DecideToMove(StateController controller)
+        protected virtual void MoveHorizontally(StateController controller)
         {
-            return false;
+
         }
 
         protected virtual void SetPlayerPositionToTargetLanePosition(StateController controller)

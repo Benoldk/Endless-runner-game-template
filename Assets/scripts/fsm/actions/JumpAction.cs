@@ -2,7 +2,7 @@
 
 namespace game.package.fsm
 {
-    [CreateAssetMenu(menuName = "FSM/Actions/JumpAction", fileName = "Jump-action")]
+    [CreateAssetMenu(menuName = "FSM/Actions/JumpAction", fileName = "Jump-action", order = 2)]
     public class JumpAction : Action
     {
         public override void Act(StateController controller)

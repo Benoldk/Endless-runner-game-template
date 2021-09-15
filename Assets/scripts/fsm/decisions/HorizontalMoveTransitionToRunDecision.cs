@@ -2,8 +2,8 @@
 
 namespace game.package.fsm
 {
-    [CreateAssetMenu(menuName = "FSM/Decisions/TransitionToRunDecision", fileName = "Transition-To-Run-Decision")]
-    public class TransitionToRunDecision : Decision
+    [CreateAssetMenu(menuName = "FSM/Decisions/HorizontalMoveTransitionToRunDecision", fileName = "HorizontalMove-Transition-To-Run-Decision", order = 7)]
+    public class HorizontalMoveTransitionToRunDecision : Decision
     {
         public override bool Decide(StateController controller)
         {
@@ -12,7 +12,7 @@ namespace game.package.fsm
 
         private bool DecideToTransitionToRun(StateController controller)
         {
-            return !controller.isMovingLeft && !controller.isMovingRight;
+            return !controller.isMovingHorizontally;
         }
     }
 }
