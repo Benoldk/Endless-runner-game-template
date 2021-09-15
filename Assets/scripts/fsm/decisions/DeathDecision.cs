@@ -2,7 +2,7 @@
 
 namespace game.package.fsm
 {
-    [CreateAssetMenu(menuName = "FSM/Decisions/DeathDecision", fileName = "Death-decision")]
+    [CreateAssetMenu(menuName = "FSM/Decisions/DeathDecision", fileName = "Death-decision", order = 8)]
     public class DeathDecision : Decision
     {
         public override bool Decide(StateController controller)

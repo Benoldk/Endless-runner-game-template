@@ -18,7 +18,7 @@ namespace game.package.gameplay
 
         public void Apply()
         {
-            GameEvents.OnUIAddToCurrency?.Invoke(value);
+            HUDEvents.OnUIAddToCurrency?.Invoke(value);
         }
     }
 }
