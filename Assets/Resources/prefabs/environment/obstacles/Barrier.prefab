@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 306638019406619981}
   - component: {fileID: 2575220534923006498}
   - component: {fileID: 4396557309375666548}
-  - component: {fileID: 3545440670159040716}
+  - component: {fileID: 5729706825131560461}
   - component: {fileID: -4534438780261810411}
+  - component: {fileID: 3545440670159040716}
   m_Layer: 7
   m_Name: Barrier
   m_TagString: Obstacle
@@ -95,20 +96,21 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.9649218, y: 0.85677606, z: 0.6724969}
+  m_Size: {x: 1.6, y: 0.85677606, z: 0.6724969}
   m_Center: {x: 0, y: 0.4283879, z: 0.0000004172325}
---- !u!114 &3545440670159040716
-MonoBehaviour:
+--- !u!65 &5729706825131560461
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4450387417002984470}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13200b8614384234da83feecbb4efd63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 2
+  m_Size: {x: 1.9649218, y: 0.85677606, z: 0.6724969}
+  m_Center: {x: 0, y: 0.4283879, z: 0.0000004172325}
 --- !u!54 &-4534438780261810411
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -125,3 +127,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &3545440670159040716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4450387417002984470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13200b8614384234da83feecbb4efd63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
