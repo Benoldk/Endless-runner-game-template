@@ -56,7 +56,7 @@ namespace game.package.gameplay.services
 
         private void DisplayPauseScreen(bool gamePauseState)
         {
-            GetComponent<GameUI>().pauseUI.SetActive(gamePauseState);
+            GetComponent<GameHUD>().pauseUI.SetActive(gamePauseState);
         }
     }
 }

@@ -19,8 +19,8 @@ namespace game.package.fsm
         public float runAnimationMultiplier = 0.6f;
         public float runAnimationAccel = 0.001f;
         public float runAnimMaxMultiplier = 1;
-        public bool isSliding;
         public float slideDuration = 0.5f;
+        public float stumbleDuration = 0.5f;
 
         [SerializeField] protected CharacterStats characterStats;
 
@@ -28,10 +28,11 @@ namespace game.package.fsm
         [HideInInspector] public bool isMovingHorizontally;
         [HideInInspector] public bool isJumping;
         [HideInInspector] public Rigidbody rigidBody;
-
+        [HideInInspector] public bool isSliding;
+        [HideInInspector] public bool isStumbling;
 
         public Vector3 targetPosition;
-        internal Vector3 direction;
+        public Vector3 direction;
 
         private void Start()
         {
@@ -67,6 +68,15 @@ namespace game.package.fsm
             if (nextState != remainState)
             {
                 currentState = nextState;
+            }
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            Debug.Log($"player collided with {other.tag}");
+            if(other.tag.CompareTo("Obstacle") == 0)
+            {
+                isStumbling = true;
             }
         }
     }

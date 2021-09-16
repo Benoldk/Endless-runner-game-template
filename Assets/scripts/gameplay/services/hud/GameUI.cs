@@ -4,11 +4,12 @@ using UnityEngine;
 
 namespace game.package.gameplay
 {
-    public class GameUI : MonoBehaviour
+    public class GameHUD : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI scoreTextGUI;
         [SerializeField] private TextMeshProUGUI currencyTextGUI;
         [SerializeField] private TextMeshProUGUI scoreMultiplierTextGUI;
+        [SerializeField] private HealthHUD healthHUD;
         public GameObject pauseUI;
 
         private int score = 0;
@@ -17,9 +18,10 @@ namespace game.package.gameplay
 
         private void Awake()
         {
-            GameEvents.OnUIAddToCurrency += AddToCurrency;
-            GameEvents.OnUIAddToScore += AddToScore;
-            GameEvents.OnUIAddToScoreMultipler += AddToScoreMultiplier;
+            HUDEvents.OnUIAddToCurrency += AddToCurrency;
+            HUDEvents.OnUIAddToScore += AddToScore;
+            HUDEvents.OnUIAddToScoreMultipler += AddToScoreMultiplier;
+            HUDEvents.OnUpdateHP += healthHUD.SetHP;
         }
 
         private void Start()

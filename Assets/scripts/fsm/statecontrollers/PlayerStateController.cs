@@ -7,7 +7,6 @@ namespace game.package.fsm
     public class PlayerStateController : StateController
     {
         private Ray collisionRay;
-        private Rigidbody rigidBod;
         [SerializeField] private int scoreValue = 5;
         [Range(0.5f, 2f)]
         [SerializeField] private float scoreUpdateInterval = 1f;
@@ -16,14 +15,13 @@ namespace game.package.fsm
         protected override void Initialize()
         {
             base.Initialize();
-            rigidBod = GetComponent<Rigidbody>();
         }
 
         private void Update()
         {
             UpdateState();
             HandleCustomCollision();
-            UpdateScore();
+            UpdateUI();
         }
 
         void HandleCustomCollision()
@@ -33,7 +31,7 @@ namespace game.package.fsm
             collisionRay = new Ray(position, transform.forward.normalized);
             if(Physics.Raycast(collisionRay, out RaycastHit hitInfo, 0.5f, LayerMask.GetMask("Obstacle", "Pickup")))
             {
-                hitInfo.collider.gameObject.GetComponent<CollidableGameObject>().HandleCollision(rigidBod);
+                hitInfo.collider.gameObject.GetComponent<CollidableGameObject>().HandleCollision(rigidBody);
             }
         }
 
@@ -43,13 +41,19 @@ namespace game.package.fsm
         //    Gizmos.DrawRay(collisionRay.origin, collisionRay.direction.normalized * 0.5f);
         //}
 
+        private void UpdateUI()
+        {
+            UpdateScore();
+            HUDEvents.OnUpdateHP?.Invoke(localStats.Health);
+        }
+
         private void UpdateScore()
         {
             elapsedTime += Time.deltaTime;
             if(elapsedTime > scoreUpdateInterval)
             {
                 elapsedTime = 0;
-                GameEvents.OnUIAddToScore?.Invoke(scoreValue);
+                HUDEvents.OnUIAddToScore?.Invoke(scoreValue);
             }
         }
 
