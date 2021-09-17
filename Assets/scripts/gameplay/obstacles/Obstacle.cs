@@ -1,12 +1,18 @@
+using game.package.fsm;
 using UnityEngine;
 
 namespace game.package.gameplay
 {
     public class Obstacle : CollidableGameObject
     {
-        public override void HandleCollision(Rigidbody rigidbod)
+        private void OnCollisionEnter(Collision collision)
         {
-            Debug.Log($"{tag} collided with {name}");
+            HandleCollision(gameObject);
+        }
+
+        public override void HandleCollision(GameObject target)
+        {
+            
         }
     }
 }

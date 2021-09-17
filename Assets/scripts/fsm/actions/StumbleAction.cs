@@ -2,7 +2,7 @@
 
 namespace game.package.fsm
 {
-    [CreateAssetMenu(menuName = "FSM/Actions/StumbleAction", fileName = "Stumble-action")]
+    [CreateAssetMenu(menuName = "FSM/Actions/StumbleAction", fileName = "Stumble-action", order = 6)]
     public class StumbleAction : Action
     {
         public override void Act(StateController controller)

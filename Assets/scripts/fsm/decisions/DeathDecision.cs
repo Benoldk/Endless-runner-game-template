@@ -12,7 +12,13 @@ namespace game.package.fsm
 
         private bool IsDead(StateController controller)
         {
-            return controller.localStats.Health <= 0;
+            if(controller.localStats.Health <= 0 && !controller.isDead)
+            {
+                controller.isDead = true;
+                controller.gameObject.layer = LayerMask.NameToLayer("PlayerDeath");
+                controller.GetComponent<Rigidbody>().AddForce(new Vector3(0, 1, -1) * 3f, ForceMode.Impulse);
+            }
+            return controller.isDead;
         }
     }
 }

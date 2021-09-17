@@ -1,4 +1,5 @@
-﻿using game.package.fsm.stats;
+﻿using System;
+using game.package.fsm.stats;
 using UnityEngine;
 
 namespace game.package.fsm
@@ -15,6 +16,7 @@ namespace game.package.fsm
         public int targetLane = 1;
         public float targetLanePosition;
         public float targetDistanceThreshold = 0.25f;
+
         public float jumpForce = 2f;
         public float runAnimationMultiplier = 0.6f;
         public float runAnimationAccel = 0.001f;
@@ -24,12 +26,13 @@ namespace game.package.fsm
 
         [SerializeField] protected CharacterStats characterStats;
 
+        [HideInInspector] public Rigidbody rigidBody;
         [HideInInspector] public Vector3 nextPoint;
         [HideInInspector] public bool isMovingHorizontally;
         [HideInInspector] public bool isJumping;
-        [HideInInspector] public Rigidbody rigidBody;
         [HideInInspector] public bool isSliding;
         [HideInInspector] public bool isStumbling;
+        [HideInInspector] public bool isDead;
 
         public Vector3 targetPosition;
         public Vector3 direction;
@@ -61,6 +64,7 @@ namespace game.package.fsm
             isMovingHorizontally = false;
             isJumping = false;
             isSliding = false;
+            isDead = false;
         }
 
         public virtual void TransitionToState(State nextState)
@@ -73,7 +77,6 @@ namespace game.package.fsm
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log($"player collided with {other.tag}");
             if(other.tag.CompareTo("Obstacle") == 0)
             {
                 isStumbling = true;

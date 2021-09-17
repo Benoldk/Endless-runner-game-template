@@ -4,6 +4,6 @@ namespace game.package.gameplay
 {
     public abstract class CollidableGameObject : MonoBehaviour
     {
-        public abstract void HandleCollision(Rigidbody rigidbod);
+        public abstract void HandleCollision(GameObject target);
     }
 }

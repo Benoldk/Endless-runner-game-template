@@ -31,7 +31,7 @@ namespace game.package.fsm
             collisionRay = new Ray(position, transform.forward.normalized);
             if(Physics.Raycast(collisionRay, out RaycastHit hitInfo, 0.5f, LayerMask.GetMask("Obstacle", "Pickup")))
             {
-                hitInfo.collider.gameObject.GetComponent<CollidableGameObject>().HandleCollision(rigidBody);
+                hitInfo.collider.gameObject.GetComponent<CollidableGameObject>().HandleCollision(gameObject);
             }
         }
 
@@ -60,6 +60,11 @@ namespace game.package.fsm
         private void OnCollisionEnter(Collision collision)
         {
             isJumping = !(collision.collider.tag.CompareTo("Ground") == 0);
+
+            if (collision.gameObject.tag.CompareTo("Obstacle") == 0)
+            {
+                localStats.Health = 0;
+            }
         }
 
         private void OnCollisionExit(Collision collision)

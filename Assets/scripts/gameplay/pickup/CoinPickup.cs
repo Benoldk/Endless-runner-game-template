@@ -7,9 +7,9 @@ namespace game.package.gameplay
     {
         public int value;
 
-        public override void HandleCollision(Rigidbody rigidbod)
+        public override void HandleCollision(GameObject _gameObject)
         {
-            if(rigidbod.tag.CompareTo("Player") == 0)
+            if(_gameObject.tag.CompareTo("Player") == 0)
             {
                 Apply();
                 gameObject.SetActive(false);
