@@ -19,8 +19,11 @@ public class TestObstacle : MonoBehaviour
         }
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    print($"trigger entered by {other.tag}");
-    //}
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            Speed = 0;
+        }
+    }
 }
