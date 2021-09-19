@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace game.package.gameplay.services
+namespace game.package.ui
 {
     public static class HUDEvents
     {
@@ -8,5 +8,6 @@ namespace game.package.gameplay.services
         public static Action<int> OnUIAddToCurrency;
         public static Action<int> OnUIAddToScoreMultipler;
         public static Action<int> OnUpdateHP;
+        public static Action<bool> OnGamePaused;
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using game.package.ui;
+using UnityEngine;
 
 namespace game.package.gameplay.services
 {
@@ -7,8 +8,6 @@ namespace game.package.gameplay.services
         public static GameplayManager instance;
 
         public Road[] roads;
-
-        public bool isGamePaused { get; private set; }
 
         private GameObjectPool gameObjectPool;
 
@@ -46,17 +45,6 @@ namespace game.package.gameplay.services
         {
             var road = GameObject.Find($"Road-{index}");
             road.SetActive(false);
-        }
-
-        public void ToggleGamePauseState()
-        {
-            isGamePaused = !isGamePaused;
-            DisplayPauseScreen(isGamePaused);
-        }
-
-        private void DisplayPauseScreen(bool gamePauseState)
-        {
-            GetComponent<GameHUD>().pauseUI.SetActive(gamePauseState);
         }
     }
 }
