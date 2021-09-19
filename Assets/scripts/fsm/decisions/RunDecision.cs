@@ -7,12 +7,12 @@ namespace game.package.fsm
     {
         private float elapsedTime;
 
-        public override bool Decide(StateController controller)
+        public override bool Decide(PlayerStateController controller)
         {
             return DecideToRun(controller);
         }
 
-        private bool DecideToRun(StateController controller)
+        private bool DecideToRun(PlayerStateController controller)
         {
             elapsedTime += Time.deltaTime;
             if(elapsedTime > controller.localStats.IdleDuration)

@@ -5,7 +5,7 @@ namespace game.package.fsm
     [CreateAssetMenu(menuName = "FSM/Decisions/MoveRightDecision", fileName = "Move-right-decision", order = 6)]
     public class MoveRightDecision : MoveToLaneDecision
     {
-        protected override bool DecideToMove(StateController controller)
+        protected override bool DecideToMove(PlayerStateController controller)
         {
             if (controller.targetLane < controller.maxLaneIndex
                 && !controller.isMovingHorizontally

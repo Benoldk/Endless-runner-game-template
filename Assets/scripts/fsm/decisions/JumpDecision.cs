@@ -5,12 +5,12 @@ namespace game.package.fsm
     [CreateAssetMenu(menuName = "FSM/Decisions/JumpDecision", fileName = "Jump-decision", order = 3)]
     public class JumpDecision : Decision
     {
-        public override bool Decide(StateController controller)
+        public override bool Decide(PlayerStateController controller)
         {
             return DecideToJump(controller);
         }
 
-        private bool DecideToJump(StateController controller)
+        private bool DecideToJump(PlayerStateController controller)
         {
             if(!controller.isJumping 
                 && controller.rigidBody.velocity.y == 0
