@@ -12,12 +12,12 @@ namespace game.package.fsm
 
         private bool DecideToSlide(PlayerStateController controller)
         {
-            if(!controller.isSliding
+            if(!controller.slideAction.isActive
                 && Input.GetAxis("Vertical") < 0)
             {
-                controller.isSliding = true;
+                controller.slideAction.isActive = true;
             }
-            return controller.isSliding;
+            return controller.slideAction.isActive;
         }
     }
 }

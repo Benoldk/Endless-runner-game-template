@@ -15,11 +15,11 @@ namespace game.package.fsm
         private bool TransitionFromStumbleToRunDecision(PlayerStateController controller)
         {
             elapsedTime += Time.deltaTime;
-            if(elapsedTime > controller.stumbleDuration)
+            if(elapsedTime > controller.stumbleAction.factor)
             {
                 elapsedTime = 0;
-                controller.isStumbling = false;
-                controller.animator.SetBool("isStumbling", controller.isStumbling);
+                controller.stumbleAction.isActive = false;
+                controller.animator.SetBool("isStumbling", controller.stumbleAction.isActive);
                 return true;
             }
 

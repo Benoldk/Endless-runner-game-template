@@ -12,7 +12,7 @@ namespace game.package.fsm
 
         private bool DecideToRun(PlayerStateController controller)
         {
-            if(!controller.isJumping && controller.rigidBody.velocity.y == 0)
+            if(!controller.jumpAction.isActive && controller.rigidBody.velocity.y == 0)
             {
                 controller.animator.SetBool("isJumping", false);
                 return true;

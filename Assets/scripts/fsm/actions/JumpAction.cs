@@ -13,7 +13,7 @@ namespace game.package.fsm
 
         private void Jump(PlayerStateController controller)
         {
-            controller.animator.SetBool("isJumping", controller.isJumping);
+            controller.animator.SetBool("isJumping", controller.jumpAction.isActive);
         }
     }
 }

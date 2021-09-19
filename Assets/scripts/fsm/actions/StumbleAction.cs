@@ -13,7 +13,7 @@ namespace game.package.fsm
 
         private void Stumble(PlayerStateController controller)
         {
-            controller.animator.SetBool("isStumbling", controller.isStumbling);
+            controller.animator.SetBool("isStumbling", controller.stumbleAction.isActive);
         }
     }
 }

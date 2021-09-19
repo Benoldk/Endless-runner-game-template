@@ -12,7 +12,7 @@ namespace game.package.fsm
 
         private void Slide(PlayerStateController controller)
         {
-            controller.animator.SetBool("isSliding", controller.isSliding);
+            controller.animator.SetBool("isSliding", controller.slideAction.isActive);
         }
     }
 }

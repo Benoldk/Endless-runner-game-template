@@ -12,7 +12,7 @@ namespace game.package.fsm
 
         private bool DecideToTransitionToRun(PlayerStateController controller)
         {
-            return !controller.isMovingHorizontally;
+            return !controller.horizontalMovementAction.isActive;
         }
     }
 }

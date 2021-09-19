@@ -14,15 +14,15 @@ namespace game.package.fsm
 
         private void Run(PlayerStateController controller)
         {
-            controller.direction = controller.transform.forward.normalized;
+            controller.horizontalMovementAction.direction = Vector3.zero;// controller.transform.forward.normalized;
             controller.animator.SetFloat("speed", controller.localStats.Speed);
         }
 
         private void SetRunAnimationSpeed(PlayerStateController controller)
         {
-            if(controller.runAnimationMultiplier < controller.runAnimMaxMultiplier)
-                controller.runAnimationMultiplier += controller.runAnimationAccel * Time.deltaTime;
-            controller.animator.SetFloat("runAnimMultiplier", controller.runAnimationMultiplier);
+            if(controller.runAction.runAnimationMultiplier < controller.runAction.runAnimMaxMultiplier)
+                controller.runAction.runAnimationMultiplier += controller.runAction.runAnimationAccel * Time.deltaTime;
+            controller.animator.SetFloat("runAnimMultiplier", controller.runAction.runAnimationMultiplier);
         }
     }
 }

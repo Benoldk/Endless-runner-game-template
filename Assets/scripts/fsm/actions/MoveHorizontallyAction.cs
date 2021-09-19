@@ -18,9 +18,9 @@ namespace game.package.fsm
         protected virtual void SetPlayerPositionToTargetLanePosition(PlayerStateController controller)
         {
             Vector3 playerPos = controller.transform.position;
-            playerPos.x = controller.targetPosition.x;
+            playerPos.x = controller.horizontalMovementAction.targetPosition.x;
             controller.transform.position = playerPos;
-            controller.isMovingHorizontally = false;
+            controller.horizontalMovementAction.isActive = false;
         }
     }
 }

@@ -15,5 +15,5 @@ MonoBehaviour:
   Health: 3
   Speed: 10
   MaxSpeed: 40
-  Acceleration: 0.025
-  IdleDuration: 3
+  Acceleration: 0.375
+  IdleDuration: 1

@@ -13,12 +13,12 @@ namespace game.package.fsm
 
         private bool DecideToStumble(PlayerStateController controller)
         {
-            if (controller.isStumbling)
+            if (controller.stumbleAction.isActive)
             {
                 controller.localStats.Health--;
                 HUDEvents.OnUpdateHP?.Invoke(controller.localStats.Health);
             }
-            return controller.isStumbling;
+            return controller.stumbleAction.isActive;
         }
     }
 }
