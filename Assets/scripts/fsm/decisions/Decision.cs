@@ -4,6 +4,6 @@ namespace game.package.fsm
 {
     public abstract class Decision : ScriptableObject
     {
-        public abstract bool Decide(StateController controller);
+        public abstract bool Decide(PlayerStateController controller);
     }
 }

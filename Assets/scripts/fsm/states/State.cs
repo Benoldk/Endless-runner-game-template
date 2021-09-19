@@ -8,13 +8,13 @@ namespace game.package.fsm
         public Action[] Actions;
         public Transition[] Transitions;
 
-        public void UpdateState(StateController controller)
+        public void UpdateState(PlayerStateController controller)
         {
             DoActions(controller);
             CheckTransitions(controller);
         }
 
-        private void DoActions(StateController controller)
+        private void DoActions(PlayerStateController controller)
         {
             for (int i = 0; i < Actions.Length; i++)
             {
@@ -22,7 +22,7 @@ namespace game.package.fsm
             }
         }
 
-        private void CheckTransitions(StateController controller)
+        private void CheckTransitions(PlayerStateController controller)
         {
             for (int i = 0; i < Transitions.Length; i++)
             {

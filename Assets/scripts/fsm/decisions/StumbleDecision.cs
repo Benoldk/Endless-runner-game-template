@@ -6,19 +6,19 @@ namespace game.package.fsm
     [CreateAssetMenu(menuName = "FSM/Decisions/StumbleDecision", fileName = "Stumble-decision", order = 8)]
     public class StumbleDecision : Decision
     {
-        public override bool Decide(StateController controller)
+        public override bool Decide(PlayerStateController controller)
         {
             return DecideToStumble(controller);
         }
 
-        private bool DecideToStumble(StateController controller)
+        private bool DecideToStumble(PlayerStateController controller)
         {
-            if (controller.isStumbling)
+            if (controller.stumbleAction.isActive)
             {
                 controller.localStats.Health--;
                 HUDEvents.OnUpdateHP?.Invoke(controller.localStats.Health);
             }
-            return controller.isStumbling;
+            return controller.stumbleAction.isActive;
         }
     }
 }

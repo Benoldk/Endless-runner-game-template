@@ -4,23 +4,23 @@ namespace game.package.fsm
 {
     public class MoveHorizontallyAction : Action
     {
-        public override void Act(StateController controller)
+        public override void Act(PlayerStateController controller)
         {
             MoveHorizontally(controller);
             UpdatePosition(controller);
         }
 
-        protected virtual void MoveHorizontally(StateController controller)
+        protected virtual void MoveHorizontally(PlayerStateController controller)
         {
 
         }
 
-        protected virtual void SetPlayerPositionToTargetLanePosition(StateController controller)
+        protected virtual void SetPlayerPositionToTargetLanePosition(PlayerStateController controller)
         {
             Vector3 playerPos = controller.transform.position;
-            playerPos.x = controller.targetPosition.x;
+            playerPos.x = controller.horizontalMovementAction.targetPosition.x;
             controller.transform.position = playerPos;
-            controller.isMovingHorizontally = false;
+            controller.horizontalMovementAction.isActive = false;
         }
     }
 }

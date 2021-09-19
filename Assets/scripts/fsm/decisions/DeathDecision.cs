@@ -5,12 +5,12 @@ namespace game.package.fsm
     [CreateAssetMenu(menuName = "FSM/Decisions/DeathDecision", fileName = "Death-decision", order = 10)]
     public class DeathDecision : Decision
     {
-        public override bool Decide(StateController controller)
+        public override bool Decide(PlayerStateController controller)
         {
             return IsDead(controller);
         }
 
-        private bool IsDead(StateController controller)
+        private bool IsDead(PlayerStateController controller)
         {
             if(controller.localStats.Health <= 0 && !controller.isDead)
             {

@@ -1,65 +1,73 @@
-﻿using game.package.gameplay;
-using game.package.gameplay.services;
+﻿using game.package.fsm.stats;
 using UnityEngine;
 
 namespace game.package.fsm
 {
-    public class PlayerStateController : StateController
+    public class PlayerStateController : MonoBehaviour
     {
-        private Ray collisionRay;
-        [SerializeField] private int scoreValue = 5;
-        [Range(0.5f, 2f)]
-        [SerializeField] private float scoreUpdateInterval = 1f;
-        private float elapsedTime;
+        public State currentState;
+        public State remainState;
+        public LocalCharacterStats localStats;
+        public Animator animator;
+        [SerializeField] private CharacterStats characterStats;
 
-        protected override void Initialize()
+        public RunStateAction runAction;
+        public HorizontalMovementStateAction horizontalMovementAction;
+        public SimpleStateAction jumpAction;
+        public SimpleStateAction slideAction;
+        public SimpleStateAction stumbleAction;
+        
+        [HideInInspector] public Rigidbody rigidBody;
+        [HideInInspector] public Vector3 nextPoint;
+        [HideInInspector] public bool isDead;
+
+        private void Start()
         {
-            base.Initialize();
+            Initialize();
         }
 
         private void Update()
         {
             UpdateState();
             HandleCustomCollision();
-            UpdateUI();
+        }
+
+        protected void Initialize()
+        {
+            localStats = new LocalCharacterStats(characterStats);
+            rigidBody = GetComponent<Rigidbody>();
+            transform.position = Vector3.zero;
+            isDead = false;
+        }
+
+        protected virtual void UpdateState()
+        {
+            currentState.UpdateState(this);
         }
 
         void HandleCustomCollision()
         {
-            Vector3 position = transform.position;
-            position.y = GetComponent<BoxCollider>().center.y;
-            collisionRay = new Ray(position, transform.forward.normalized);
-            if(Physics.Raycast(collisionRay, out RaycastHit hitInfo, 0.5f, LayerMask.GetMask("Obstacle", "Pickup")))
+        }
+
+        public virtual void TransitionToState(State nextState)
+        {
+            if (nextState != remainState)
             {
-                hitInfo.collider.gameObject.GetComponent<CollidableGameObject>().HandleCollision(gameObject);
+                currentState = nextState;
             }
         }
 
-        //private void OnDrawGizmos()
-        //{
-        //    Gizmos.color = Color.green;
-        //    Gizmos.DrawRay(collisionRay.origin, collisionRay.direction.normalized * 0.5f);
-        //}
-
-        private void UpdateUI()
+        private void OnTriggerEnter(Collider other)
         {
-            UpdateScore();
-            HUDEvents.OnUpdateHP?.Invoke(localStats.Health);
-        }
-
-        private void UpdateScore()
-        {
-            elapsedTime += Time.deltaTime;
-            if(elapsedTime > scoreUpdateInterval)
+            if (other.tag.CompareTo("Obstacle") == 0)
             {
-                elapsedTime = 0;
-                HUDEvents.OnUIAddToScore?.Invoke(scoreValue);
+                stumbleAction.isActive = true;
             }
         }
 
         private void OnCollisionEnter(Collision collision)
         {
-            isJumping = !(collision.collider.tag.CompareTo("Ground") == 0);
+            jumpAction.isActive = !(collision.collider.tag.CompareTo("Ground") == 0);
 
             if (collision.gameObject.tag.CompareTo("Obstacle") == 0)
             {
@@ -69,7 +77,7 @@ namespace game.package.fsm
 
         private void OnCollisionExit(Collision collision)
         {
-            isJumping = collision.collider.tag.CompareTo("Ground") == 0;
+            jumpAction.isActive = collision.collider.tag.CompareTo("Ground") == 0;
         }
     }
 }

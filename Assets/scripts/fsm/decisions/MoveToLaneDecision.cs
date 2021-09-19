@@ -4,22 +4,22 @@ namespace game.package.fsm
 {
     public class MoveToLaneDecision : Decision
     {
-        public override bool Decide(StateController controller)
+        public override bool Decide(PlayerStateController controller)
         {
             return DecideToMove(controller);
         }
 
-        protected virtual bool DecideToMove(StateController controller)
+        protected virtual bool DecideToMove(PlayerStateController controller)
         {
             return false;
         }
 
-        protected virtual void SetPlayerPositionToTargetLanePosition(StateController controller)
+        protected virtual void SetPlayerPositionToTargetLanePosition(PlayerStateController controller)
         {
             Vector3 playerPos = controller.transform.position;
-            playerPos.x = controller.targetPosition.x;
+            playerPos.x = controller.horizontalMovementAction.targetPosition.x;
             controller.transform.position = playerPos;
-            controller.isMovingHorizontally = false;
+            controller.horizontalMovementAction.isActive = false;
         }
     }
 }

@@ -271,6 +271,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrier
       objectReference: {fileID: 0}
+    - target: {fileID: 4450387417002984470, guid: b1a61f5269da0be4587c0913b945d6dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1a61f5269da0be4587c0913b945d6dd, type: 3}
 --- !u!1 &957009948
@@ -464,17 +468,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 919132149187821050, guid: fc7318b42b22a5645ba10ac8cf4afa01, type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
     - target: {fileID: 4966613208185676649, guid: fc7318b42b22a5645ba10ac8cf4afa01, type: 3}
       propertyPath: m_Name
       value: player_michelle
-      objectReference: {fileID: 0}
-    - target: {fileID: 5200986557991263802, guid: fc7318b42b22a5645ba10ac8cf4afa01, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5739596702526732755, guid: fc7318b42b22a5645ba10ac8cf4afa01, type: 3}
       propertyPath: m_RootOrder
