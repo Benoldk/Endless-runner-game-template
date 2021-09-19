@@ -1,8 +1,7 @@
-﻿using game.package.gameplay.services;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
-namespace game.package.gameplay
+namespace game.package.ui
 {
     public class GameHUD : MonoBehaviour
     {
@@ -10,7 +9,7 @@ namespace game.package.gameplay
         [SerializeField] private TextMeshProUGUI currencyTextGUI;
         [SerializeField] private TextMeshProUGUI scoreMultiplierTextGUI;
         [SerializeField] private HealthHUD healthHUD;
-        public GameObject pauseUI;
+        [SerializeField] private PauseUI pauseUI;
 
         private int score = 0;
         private int currency = 0;
@@ -18,10 +17,12 @@ namespace game.package.gameplay
 
         private void Awake()
         {
+            pauseUI.gameObject.SetActive(false);
             HUDEvents.OnUIAddToCurrency += AddToCurrency;
             HUDEvents.OnUIAddToScore += AddToScore;
             HUDEvents.OnUIAddToScoreMultipler += AddToScoreMultiplier;
             HUDEvents.OnUpdateHP += healthHUD.SetHP;
+            HUDEvents.OnGamePaused += DisplayPauseUI;
         }
 
         private void Start()
@@ -52,6 +53,12 @@ namespace game.package.gameplay
         {
             scoreMultiplier += value;
             UpdateUI();
+        }
+
+        private void DisplayPauseUI(bool gamePauseState)
+        {
+            print($"Paused: {gamePauseState}");
+            pauseUI.gameObject.SetActive(gamePauseState);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace game.package.fsm
 
         private void Run(PlayerStateController controller)
         {
-            controller.horizontalMovementAction.direction = controller.transform.forward.normalized;
+            controller.horizontalMovementAction.direction = Vector3.zero;// controller.transform.forward.normalized;
             controller.animator.SetFloat("speed", controller.localStats.Speed);
         }
 

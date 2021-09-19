@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Linq;
 
-namespace game.package.gameplay
+namespace game.package.ui
 {
     public class HealthHUD : MonoBehaviour
     {

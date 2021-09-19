@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace game.package.gameplay
+namespace game.package.ui
 {
     [CreateAssetMenu(menuName = "CustomUI/ScoreUI", fileName = "score-ui")]
     public class ScoreUIController : ScriptableObject
