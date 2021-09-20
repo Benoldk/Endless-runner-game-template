@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc2b83e32ef68a34bbfb6cd015ae8090, type: 3}
-  m_Name: Move-right-decision
+  m_Script: {fileID: 11500000, guid: a106099f29ce9bd4fb4849f012fe8e01, type: 3}
+  m_Name: move-right-decision
   m_EditorClassIdentifier: 
-  rightOffset: 2.5
