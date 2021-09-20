@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9e902365e915664c94f61c5336587a5, type: 3}
-  m_Name: Run-decision
+  m_Script: {fileID: 11500000, guid: 71f05fece63133a4dad37995c19e5f90, type: 3}
+  m_Name: run-decision
   m_EditorClassIdentifier: 

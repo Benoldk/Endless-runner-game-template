@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3713e50ca840d444996a94029059ea76, type: 3}
-  m_Name: Move-left-decision
+  m_Script: {fileID: 11500000, guid: 6e37e1eb5b7a6014c8cf5d3abd207227, type: 3}
+  m_Name: move-left-decision
   m_EditorClassIdentifier: 
-  leftOffset: -2.5
