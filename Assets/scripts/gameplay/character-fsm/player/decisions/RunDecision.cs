@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using game.package.ui;
+using UnityEngine;
 
 namespace game.package.fsm
 {
@@ -18,6 +19,7 @@ namespace game.package.fsm
             if(elapsedTime > controller.localStats.IdleDuration)
             {
                 elapsedTime = 0;
+                HUDEvents.OnUpdateScoringState?.Invoke(true);
                 return true;
             }
             return false;

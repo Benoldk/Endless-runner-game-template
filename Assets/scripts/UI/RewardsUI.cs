@@ -6,7 +6,7 @@ namespace game.package.ui
     public class RewardsUI : MonoBehaviour
     {
         public int scoreUnit = 5;
-        [Range(0.5f, 2f)] public float scoreUpdateInterval = 1f;
+        [Range(0.1f, 2f)] public float scoreUpdateInterval = 1f;
         public TextMeshProUGUI scoreTMP;
         public TextMeshProUGUI scoreMultiplierTMP;
         public TextMeshProUGUI currencyTMP;
@@ -21,6 +21,7 @@ namespace game.package.ui
         {
             score = 0;
             scoreMultiplier = 1;
+            currency = 0;
             UpdateUI();
         }
 
@@ -53,7 +54,7 @@ namespace game.package.ui
         private void UpdateUI()
         {
             scoreTMP.text = score.ToString();
-            scoreMultiplierTMP.text = scoreMultiplier.ToString();
+            scoreMultiplierTMP.text = $"x{scoreMultiplier}";
             currencyTMP.text = currency.ToString();
         }
 
