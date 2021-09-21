@@ -8,6 +8,7 @@ namespace game.package.fsm
         public override void Act(PlayerStateController controller)
         {
             Slide(controller);
+            base.Act(controller);
         }
 
         private void Slide(PlayerStateController controller)

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: player-stats
   m_EditorClassIdentifier: 
   Health: 3
-  Speed: 10
+  Speed: 30
   MaxSpeed: 40
-  Acceleration: 0.375
+  Acceleration: 0.5
   IdleDuration: 1

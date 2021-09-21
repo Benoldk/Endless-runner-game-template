@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3944d8bc2c1484f46a0f4ec5ce83dda5, type: 3}
   m_Name: move-left-action
   m_EditorClassIdentifier: 
+  isTest: 1

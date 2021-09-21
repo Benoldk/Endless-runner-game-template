@@ -8,7 +8,7 @@ namespace game.package.fsm
         public override void Act(PlayerStateController controller)
         {
             Jump(controller);
-            UpdatePosition(controller);
+            base.Act(controller);
         }
 
         private void Jump(PlayerStateController controller)

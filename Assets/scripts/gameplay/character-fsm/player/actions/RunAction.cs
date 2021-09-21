@@ -7,22 +7,16 @@ namespace game.package.fsm
     {
         public override void Act(PlayerStateController controller)
         {
-            SetRunAnimationSpeed(controller);
             Run(controller);
-            UpdatePosition(controller);
+            base.Act(controller);
         }
 
         private void Run(PlayerStateController controller)
         {
-            controller.horizontalMovementAction.direction = controller.transform.forward.normalized;
+            controller.horizontalMovementAction.direction = isTest
+                    ? Vector3.zero
+                    : controller.transform.forward;
             controller.animator.SetFloat("speed", controller.localStats.Speed);
-        }
-
-        private void SetRunAnimationSpeed(PlayerStateController controller)
-        {
-            if(controller.runAction.runAnimationMultiplier < controller.runAction.runAnimMaxMultiplier)
-                controller.runAction.runAnimationMultiplier += controller.runAction.runAnimationAccel * Time.deltaTime;
-            controller.animator.SetFloat("runAnimMultiplier", controller.runAction.runAnimationMultiplier);
         }
     }
 }

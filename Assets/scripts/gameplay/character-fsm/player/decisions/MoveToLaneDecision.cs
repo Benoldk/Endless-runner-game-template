@@ -14,12 +14,9 @@ namespace game.package.fsm
             return false;
         }
 
-        protected virtual void SetPlayerPositionToTargetLanePosition(PlayerStateController controller)
+        protected virtual bool GetAxisKeyDown(string axis)
         {
-            Vector3 playerPos = controller.transform.position;
-            playerPos.x = controller.horizontalMovementAction.targetPosition.x;
-            controller.transform.position = playerPos;
-            controller.horizontalMovementAction.isActive = false;
+            return false;
         }
     }
 }

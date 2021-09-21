@@ -8,7 +8,7 @@ namespace game.package.fsm
         public override void Act(PlayerStateController controller)
         {
             Stumble(controller);
-            UpdatePosition(controller);
+            base.Act(controller);
         }
 
         private void Stumble(PlayerStateController controller)
