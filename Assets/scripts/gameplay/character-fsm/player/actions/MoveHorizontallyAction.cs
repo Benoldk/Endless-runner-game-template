@@ -7,7 +7,7 @@ namespace game.package.fsm
         public override void Act(PlayerStateController controller)
         {
             MoveHorizontally(controller);
-            UpdatePosition(controller);
+            base.Act(controller);
         }
 
         protected virtual void MoveHorizontally(PlayerStateController controller)
