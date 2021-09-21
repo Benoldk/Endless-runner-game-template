@@ -9,8 +9,8 @@ namespace game.package.fsm
         public State remainState;
         public LocalCharacterStats localStats;
         public Animator animator;
-        [SerializeField] private CharacterStats characterStats;
-
+        public int currentLane;
+        public int testTargetLane;
         public RunStateAction runAction;
         public HorizontalMovementStateAction horizontalMovementAction;
         public SimpleStateAction jumpAction;
@@ -18,9 +18,10 @@ namespace game.package.fsm
         public SimpleStateAction stumbleAction;
         
         [HideInInspector] public Rigidbody rigidBody;
-        [HideInInspector] public Vector3 nextPoint;
         [HideInInspector] public bool isDead;
 
+        [SerializeField] private CharacterStats characterStats;
+        
         private void Start()
         {
             Initialize();
@@ -37,6 +38,9 @@ namespace game.package.fsm
             localStats = new LocalCharacterStats(characterStats);
             rigidBody = GetComponent<Rigidbody>();
             transform.position = Vector3.zero;
+            currentLane = 0;
+            horizontalMovementAction.Initialize();
+            horizontalMovementAction.targetLane = 0;
             isDead = false;
         }
 

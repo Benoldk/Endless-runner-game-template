@@ -2,7 +2,6 @@
 
 namespace game.package.fsm
 {
-    //[CreateAssetMenu(menuName = "FSM/PlayerController/RunStateAction", fileName = "run-state-action")]
     public class RunStateAction : MonoBehaviour
     {
         public float runAnimationMultiplier = 0.6f;

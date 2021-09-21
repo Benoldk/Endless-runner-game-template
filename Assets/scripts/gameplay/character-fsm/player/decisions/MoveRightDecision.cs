@@ -9,14 +9,22 @@ namespace game.package.fsm
         {
             if (controller.horizontalMovementAction.targetLane < controller.horizontalMovementAction.maxLaneIndex
                 && !controller.horizontalMovementAction.isActive
-                && Input.GetAxisRaw("Horizontal") > 0)
+                && controller.currentLane == controller.horizontalMovementAction.targetLane
+                && GetAxisKeyDown("Horizontal"))
             {
                 controller.horizontalMovementAction.targetLane++;
-                controller.horizontalMovementAction.targetPosition = new Vector3(controller.transform.position.x + controller.horizontalMovementAction.laneOffset, 0, 0);
+                controller.testTargetLane = controller.horizontalMovementAction.targetLane;
+                controller.horizontalMovementAction.direction = (controller.horizontalMovementAction.lanesMap[controller.horizontalMovementAction.targetLane] - controller.horizontalMovementAction.lanesMap[controller.currentLane]).normalized;
                 controller.horizontalMovementAction.isActive = true;
+                Debug.Log($"lane target {controller.horizontalMovementAction.targetLane}");
                 return true;
             }
             return false;
+        }
+
+        protected override bool GetAxisKeyDown(string axis)
+        {
+            return Input.anyKeyDown && Input.GetAxisRaw(axis) > 0;
         }
     }
 }
