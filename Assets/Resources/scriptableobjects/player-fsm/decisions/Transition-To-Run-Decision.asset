@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19fb0d2e1bce44d45b17a9cb2932da0a, type: 3}
-  m_Name: transition-To-Run-Decision
+  m_Name: Transition-To-Run-Decision
   m_EditorClassIdentifier: 

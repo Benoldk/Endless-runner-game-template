@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using game.package.gameplay.infinitetrail;
+using UnityEngine;
 
 namespace game.package.gameplay.services
 {
@@ -6,7 +7,7 @@ namespace game.package.gameplay.services
     {
         public static GameplayManager instance;
 
-        public Road[] roads;
+        public Trail[] trails;
 
         private GameObjectPool gameObjectPool;
 
@@ -21,19 +22,18 @@ namespace game.package.gameplay.services
         private void Start()
         {
             gameObjectPool = GameObjectPool.instance;
-
-            gameObjectPool.AddPool(typeof(Road));
-            foreach (var road in roads)
+            gameObjectPool.AddPool(typeof(Trail));
+            foreach (var road in trails)
             {
-                gameObjectPool.AddGameObject(typeof(Road), road, 2);
+                gameObjectPool.AddGameObject(typeof(Trail), road, 2);
             }
         }
 
         public void CreateRoad(int index, Vector3 position)
         {
-            var randRoad = roads[Random.Range(0, roads.Length)];
-            var road = (Road)gameObjectPool.GetGameObject(typeof(Road), randRoad);
-            road.name = $"Road-{index}";
+            var randRoad = trails[Random.Range(0, trails.Length)];
+            var road = (Trail)gameObjectPool.GetGameObject(typeof(Trail), randRoad);
+            road.name = $"Trail-{index}";
             road.index = index;
             road.transform.position = position;
             road.transform.parent = transform;
@@ -42,7 +42,7 @@ namespace game.package.gameplay.services
 
         public void DestroyRoad(int index)
         {
-            var road = GameObject.Find($"Road-{index}");
+            var road = GameObject.Find($"Trail-{index}");
             road.SetActive(false);
         }
     }
