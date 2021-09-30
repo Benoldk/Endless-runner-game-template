@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 140b01dea9ac1d04893e2ac1d64edf93, type: 3}
-  m_Name: move-left-state
+  m_Name: Move-left-state
   m_EditorClassIdentifier: 
   Actions:
   - {fileID: 11400000, guid: e3380ffda4485cd45ad8ed758d951ca1, type: 2}

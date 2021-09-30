@@ -12,6 +12,6 @@ namespace game.package.gameplay
 
         public abstract void AddGameObject(Type type, MonoBehaviour prefab, int count = 1);
 
-        public abstract MonoBehaviour GetGameObject(Type type, MonoBehaviour prefab);
+        public abstract MonoBehaviour GetRandomObject<T>(MonoBehaviour prefab);
     }
 }

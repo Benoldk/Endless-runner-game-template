@@ -10,5 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a1bdf6a04e94b344a8be068044c7cd6, type: 3}
-  m_Name: slide-action
+  m_Name: Slide-action
   m_EditorClassIdentifier: 
+  isTest: 0

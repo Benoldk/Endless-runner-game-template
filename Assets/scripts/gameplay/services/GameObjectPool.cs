@@ -38,21 +38,24 @@ namespace game.package.gameplay.services
             }
         }
 
-        public override MonoBehaviour GetGameObject(Type type, MonoBehaviour prefab)
+        public override MonoBehaviour GetRandomObject<T>(MonoBehaviour prefab)
         {
-            if(prefab != null)
+            Type type = typeof(T);
+            if (!gameObectPools.ContainsKey(type))
+                AddPool(type);
+            var enumerables = gameObectPools[type].Where(g => !g.gameObject.activeSelf);
+            MonoBehaviour obj = null;
+            if (enumerables.Count() > 0)
             {
-                if (!gameObectPools.ContainsKey(type))
-                    AddPool(type);
-                var obj = gameObectPools[type].FirstOrDefault(g => !g.gameObject.activeSelf);
-                if(obj == null)
-                {
-                    AddGameObject(type, prefab);
-                    obj = gameObectPools[type].FirstOrDefault(g => !g.gameObject.activeSelf);
-                }
-                return obj;
+                int rand = UnityEngine.Random.Range(0, enumerables.Count());
+                obj = enumerables.ToList()[rand];
             }
-            return null;
+            if (obj == null)
+            {
+                AddGameObject(type, prefab);
+                obj = gameObectPools[type].FirstOrDefault(g => !g.gameObject.activeSelf);
+            }
+            return obj;
         }
     }
 }
