@@ -11,7 +11,7 @@ namespace game.package.gameplay.infinitetrail
         {
             if (other.gameObject.tag.CompareTo("Player") == 0)
             {
-                GameplayManager.instance.DestroyRoad(trail.index - 1);
+                GameplayManager.instance.DestroyRoad($"Trail-{trail.index - 1}");
             }
         }
     }

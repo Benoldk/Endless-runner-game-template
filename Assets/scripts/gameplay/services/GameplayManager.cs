@@ -23,16 +23,19 @@ namespace game.package.gameplay.services
         {
             gameObjectPool = GameObjectPool.instance;
             gameObjectPool.AddPool(typeof(Trail));
-            foreach (var road in trails)
+            foreach (var trail in trails)
             {
-                gameObjectPool.AddGameObject(typeof(Trail), road, 2);
+                gameObjectPool.AddGameObject(typeof(Trail), trail, 1);
             }
+
+            CreateRoad(0, Vector3.zero);
         }
 
         public void CreateRoad(int index, Vector3 position)
         {
-            var randRoad = trails[Random.Range(0, trails.Length)];
-            var road = (Trail)gameObjectPool.GetGameObject(typeof(Trail), randRoad);
+            int rand = Random.Range(0, trails.Length);
+            var randRoad = trails[rand];
+            var road = (Trail)gameObjectPool.GetRandomObject<Trail>(randRoad);
             road.name = $"Trail-{index}";
             road.index = index;
             road.transform.position = position;
@@ -40,10 +43,11 @@ namespace game.package.gameplay.services
             road.gameObject.SetActive(true);
         }
 
-        public void DestroyRoad(int index)
+        public void DestroyRoad(string name)
         {
-            var road = GameObject.Find($"Trail-{index}");
-            road.SetActive(false);
+            var road = GameObject.Find(name);
+            if(road != null)
+                road.SetActive(false);
         }
     }
 }
