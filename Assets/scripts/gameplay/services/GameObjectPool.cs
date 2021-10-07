@@ -43,17 +43,11 @@ namespace game.package.gameplay.services
             Type type = typeof(T);
             if (!gameObectPools.ContainsKey(type))
                 AddPool(type);
-            var enumerables = gameObectPools[type].Where(g => !g.gameObject.activeSelf);
-            MonoBehaviour obj = null;
-            if (enumerables.Count() > 0)
-            {
-                int rand = UnityEngine.Random.Range(0, enumerables.Count());
-                obj = enumerables.ToList()[rand];
-            }
+            MonoBehaviour obj = gameObectPools[type].FirstOrDefault(g => !g.gameObject.activeSelf && g.name == prefab.name);
             if (obj == null)
             {
                 AddGameObject(type, prefab);
-                obj = gameObectPools[type].FirstOrDefault(g => !g.gameObject.activeSelf);
+                obj = gameObectPools[type].FirstOrDefault(g => !g.gameObject.activeSelf && g.name == prefab.name);
             }
             return obj;
         }
