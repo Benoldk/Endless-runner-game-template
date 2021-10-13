@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace game.package.menus
 {
@@ -7,6 +8,15 @@ namespace game.package.menus
         [SerializeField] private GameObject mainMenu;
         [SerializeField] private GameObject optionsMenu;
         [SerializeField] private GameObject creditsMenu;
+        [SerializeField] private GameObject loadingUI;
+
+        private void Awake()
+        {
+            loadingUI.gameObject.SetActive(false);
+            creditsMenu.SetActive(false);
+            optionsMenu.SetActive(false);
+            mainMenu.SetActive(true);
+        }
 
         public void DisplayMainMenu()
         {
@@ -43,6 +53,11 @@ namespace game.package.menus
             mainMenu.SetActive(false);
             optionsMenu.SetActive(false);
             creditsMenu.SetActive(false);
+        }
+
+        public void DisplayLoadingBar()
+        {
+            loadingUI.gameObject.SetActive(true);
         }
     }
 }
