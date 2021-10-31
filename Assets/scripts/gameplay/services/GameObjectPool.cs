@@ -20,10 +20,10 @@ namespace game.package.gameplay.services
         public override void AddPool(Type type)
         {
             if (!gameObectPools.ContainsKey(type))
-                gameObectPools.Add(type, new List<MonoBehaviour>());
+                gameObectPools.Add(type, new List<GameObject>());
         }
 
-        public override void AddGameObject(Type type, MonoBehaviour prefab, int count = 1)
+        public override void AddGameObject(Type type, GameObject prefab, int count = 1)
         {
             if (prefab != null)
             {
@@ -38,16 +38,24 @@ namespace game.package.gameplay.services
             }
         }
 
-        public override MonoBehaviour GetRandomObject<T>(MonoBehaviour prefab)
+        public void RegisterGameObjects<T>(List<GameObject> assets)
+        {
+            foreach(var asset in assets)
+            {
+                AddGameObject(typeof(T), asset);
+            }
+        }
+
+        public override GameObject GetRandomObject<T>(GameObject prefab)
         {
             Type type = typeof(T);
             if (!gameObectPools.ContainsKey(type))
                 AddPool(type);
-            MonoBehaviour obj = gameObectPools[type].FirstOrDefault(g => !g.gameObject.activeSelf && g.name == prefab.name);
+            GameObject obj = gameObectPools[type].FirstOrDefault(g => !g.activeSelf && g.name.Contains(prefab.name));
             if (obj == null)
             {
                 AddGameObject(type, prefab);
-                obj = gameObectPools[type].FirstOrDefault(g => !g.gameObject.activeSelf && g.name == prefab.name);
+                obj = gameObectPools[type].FirstOrDefault(g => !g.activeSelf && g.name.Contains(prefab.name));
             }
             return obj;
         }
